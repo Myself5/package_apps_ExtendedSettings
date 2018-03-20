@@ -207,6 +207,8 @@ public class ExtendedSettingsActivity extends AppCompatPreferenceActivity {
                     boolean performed = performDisplayCalibration(Integer.parseInt((String)value));
                     if (performed)
                         setSystemProperty(PREF_DISPCAL_SETTING, (String)value);
+                        ListPreference resPref = (ListPreference)findPreference(mDispCalSwitchPref);
+                        resPref.setSummary(dispCal.getElementName(Integer.parseInt((String)value)));
                     break;
                 default:
                     break;
